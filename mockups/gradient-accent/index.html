@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Gradient Accent | Portfolio Mock</title>
+    <style>
+      :root{--bg:#fff;--text:#101010;--muted:#5f5f5f;--line:#ececec;--grad:linear-gradient(135deg,#8ec5ff 0%,#d7b8ff 45%,#ffd6b0 100%)}
+      *{box-sizing:border-box} body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.65}
+      .wrap{width:min(1100px,92%);margin:auto}
+      header{border-bottom:1px solid var(--line);background:rgba(255,255,255,.85);position:sticky;top:0;backdrop-filter:blur(8px);z-index:20}
+      nav{display:flex;justify-content:space-between;align-items:center;padding:1rem 0}
+      nav a{text-decoration:none;color:#222;margin-left:1rem}
+      .hero{padding:5rem 0 4rem;position:relative;overflow:hidden}
+      .blob{position:absolute;inset:auto -100px -120px auto;width:420px;height:420px;background:var(--grad);opacity:.35;filter:blur(28px);border-radius:50%}
+      .badge{display:inline-block;padding:.25rem .6rem;border-radius:999px;background:#f4f7ff;border:1px solid #dbe5ff;font-size:.8rem}
+      h1{font-size:clamp(2rem,6vw,3.6rem);margin:.7rem 0 1rem;line-height:1.15}
+      .lead{max-width:62ch;color:var(--muted)}
+      .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+      section{padding:3rem 0}
+      h2{font-size:1.3rem;margin:0 0 1rem}
+      .card{background:#fff;border:1px solid var(--line);border-radius:16px;padding:1rem;transition:.2s transform,.2s box-shadow,.2s border-color}
+      .card:hover{transform:translateY(-4px);box-shadow:0 12px 24px rgba(30,40,80,.08);border-color:#d8e3ff}
+      .skills{display:flex;flex-wrap:wrap;gap:.5rem}.pill{padding:.35rem .75rem;border-radius:999px;background:#fafafa;border:1px solid #e6e6e6;font-size:.88rem}
+      .timeline{display:grid;gap:.7rem}.item{border-left:3px solid #dbe5ff;padding:.4rem .9rem;background:#fcfdff;border-radius:8px}
+      .fade{opacity:0;transform:translateY(10px);transition:.55s ease}.fade.in{opacity:1;transform:none}
+      footer{padding:2rem 0 4rem;color:var(--muted);font-size:.9rem}
+      @media (max-width:820px){.cards{grid-template-columns:1fr}nav .links{display:none}.blob{width:280px;height:280px}}
+    </style>
+  </head>
+  <body>
+    <header><div class="wrap"><nav><strong>Yuito</strong><div class="links"><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#awards">Awards</a><a href="#sns">SNS</a></div></nav></div></header>
+    <main class="wrap">
+      <section class="hero fade">
+        <div class="blob"></div>
+        <span class="badge">Gradient Accent</span>
+        <h1>軽量で洗練された、<br>白ベースのポートフォリオ。</h1>
+        <p class="lead">白黒基調に、控えめなグラデーションをアクセントとして利用。就活で読みやすい構成を意識したデザインです。</p>
+      </section>
+
+      <section id="about" class="fade"><h2>自己紹介</h2><div class="card">会津大学 学部1年。自己紹介・就活用に向けて、スキルと成果を簡潔に伝えるサイトを作成中です。</div></section>
+
+      <section id="skills" class="fade"><h2>スキル</h2><div class="skills"><span class="pill">HTML</span><span class="pill">CSS</span><span class="pill">GitHub</span><span class="pill">Python</span><span class="pill">C</span></div></section>
+
+      <section id="projects" class="fade"><h2>プロジェクト</h2><div class="cards"><article class="card"><h3>Project A</h3><p>フロントエンドの基本構成・レスポンシブ対応を実装。</p></article><article class="card"><h3>Project B</h3><p>授業課題にてチームで開発し、要件整理と実装を担当。</p></article></div></section>
+
+      <section id="awards" class="fade"><h2>受賞履歴</h2><div class="timeline"><div class="item">20XX - ○○賞 受賞</div><div class="item">20XX - △△コンテスト 入賞</div></div></section>
+
+      <section id="sns" class="fade"><h2>SNSリンク</h2><div class="card"><a href="#">GitHub</a> / <a href="#">X</a> / <a href="#">LinkedIn</a></div></section>
+    </main>
+    <footer class="wrap">© 2026 Yuito</footer>
+    <script>const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),{threshold:.12});document.querySelectorAll('.fade').forEach(el=>io.observe(el));</script>
+  </body>
+</html>
