@@ -1,0 +1,48 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Timeline Focus | Portfolio Mock</title>
+    <style>
+      :root{--bg:#fff;--tx:#131313;--muted:#666;--line:#ededed;--accent:#cfdcff;--grad:linear-gradient(90deg,#dfe8ff,#f2e1ff)}
+      *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--tx);line-height:1.7}
+      .wrap{width:min(980px,92%);margin:auto}
+      header{border-bottom:1px solid var(--line);position:sticky;top:0;background:rgba(255,255,255,.9);backdrop-filter:blur(8px)}
+      nav{display:flex;justify-content:space-between;align-items:center;padding:.95rem 0}
+      nav a{color:#222;text-decoration:none;margin-left:1rem}
+      .hero{padding:4.8rem 0 3rem}
+      h1{font-size:clamp(2rem,5.8vw,3.3rem);line-height:1.2;margin:0 0 1rem}
+      .lead{color:var(--muted);max-width:62ch}
+      section{padding:2.8rem 0;border-top:1px solid var(--line)}
+      .timeline{position:relative;padding-left:1.1rem}
+      .timeline:before{content:"";position:absolute;left:.2rem;top:.1rem;bottom:.1rem;width:2px;background:var(--accent)}
+      .event{position:relative;margin-bottom:1rem;padding:.8rem 1rem;border:1px solid var(--line);border-radius:12px;background:#fff;transition:.2s}
+      .event:before{content:"";position:absolute;left:-1.23rem;top:1rem;width:.6rem;height:.6rem;border-radius:50%;background:var(--accent);border:2px solid #fff;box-shadow:0 0 0 1px #d0d0d0}
+      .event:hover{transform:translateY(-2px);box-shadow:0 10px 20px rgba(0,0,0,.05)}
+      .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+      .card{border:1px solid var(--line);border-radius:12px;padding:1rem}
+      .chips{display:flex;flex-wrap:wrap;gap:.45rem}.chip{font-size:.85rem;padding:.27rem .6rem;border-radius:999px;border:1px solid #ddd;background:#fafafa}
+      .accent{display:inline-block;background:var(--grad);padding:.15rem .6rem;border-radius:999px;border:1px solid #e4e4e4;font-size:.8rem}
+      .fade{opacity:0;transform:translateY(10px);transition:.55s ease}.fade.in{opacity:1;transform:none}
+      @media (max-width:760px){.cards{grid-template-columns:1fr}nav .links{display:none}}
+    </style>
+  </head>
+  <body>
+    <header><div class="wrap"><nav><strong>Yuito</strong><div class="links"><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#awards">Awards</a><a href="#sns">SNS</a></div></nav></div></header>
+    <main class="wrap">
+      <section class="hero fade" style="border-top:none">
+        <span class="accent">Timeline Focus</span>
+        <h1>活動と成果を時系列で、<br>わかりやすく伝える。</h1>
+        <p class="lead">就活で見られやすい「何をしてきたか」を軸に、受賞やプロジェクトの流れを可視化した構成です。装飾は軽量に抑えています。</p>
+      </section>
+
+      <section id="about" class="fade"><h2>自己紹介</h2><div class="card">会津大学 学部1年。自己紹介と就活用途のためのポートフォリオサイト。</div></section>
+      <section id="skills" class="fade"><h2>スキル</h2><div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">GitHub</span><span class="chip">C</span><span class="chip">Python</span></div></section>
+      <section id="projects" class="fade"><h2>プロジェクト</h2><div class="cards"><article class="card"><h3>Project A</h3><p>UI設計・実装を担当。</p></article><article class="card"><h3>Project B</h3><p>授業課題にて実装と改善を担当。</p></article></div></section>
+      <section id="awards" class="fade"><h2>受賞履歴（タイムライン）</h2><div class="timeline"><div class="event"><strong>20XX</strong> ○○コンテスト 入賞</div><div class="event"><strong>20XX</strong> △△ハッカソン 受賞</div><div class="event"><strong>20XX</strong> 学内表彰</div></div></section>
+      <section id="sns" class="fade"><h2>SNSリンク</h2><div class="card"><a href="#">GitHub</a> / <a href="#">X</a> / <a href="#">LinkedIn</a></div></section>
+    </main>
+    <script>const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),{threshold:.1});document.querySelectorAll('.fade').forEach(el=>io.observe(el));</script>
+  </body>
+</html>
