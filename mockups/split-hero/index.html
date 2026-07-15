@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="ja">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Split Hero | Portfolio Mock</title>
+    <style>
+      :root{--bg:#fff;--tx:#121212;--muted:#656565;--line:#ebebeb;--grad:linear-gradient(135deg,#e7f0ff,#f7ecff)}
+      *{box-sizing:border-box} body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--bg);color:var(--tx);line-height:1.7}
+      .wrap{width:min(1080px,92%);margin:auto}
+      header{position:sticky;top:0;background:rgba(255,255,255,.88);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);z-index:10}
+      nav{display:flex;justify-content:space-between;align-items:center;padding:.95rem 0}
+      nav a{text-decoration:none;color:#222;margin-left:1rem}
+      .hero{padding:4rem 0 3rem;display:grid;grid-template-columns:1.2fr .8fr;gap:1rem;align-items:stretch}
+      .panel{border:1px solid var(--line);border-radius:18px;padding:1.2rem;background:#fff}
+      .panel.grad{background:var(--grad)}
+      .tag{display:inline-block;font-size:.78rem;padding:.22rem .58rem;border-radius:999px;background:#fff;border:1px solid #ddd}
+      h1{font-size:clamp(2rem,5.5vw,3.2rem);line-height:1.2;margin:.7rem 0 1rem}
+      .muted{color:var(--muted)}
+      section{padding:2.7rem 0;border-top:1px solid var(--line)}
+      .cards{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:1rem}
+      .card{border:1px solid var(--line);border-radius:14px;padding:1rem;transition:.2s}
+      .card:hover{transform:translateY(-3px);box-shadow:0 10px 22px rgba(0,0,0,.06)}
+      .chips{display:flex;flex-wrap:wrap;gap:.45rem}.chip{border:1px solid #ddd;border-radius:999px;padding:.28rem .62rem;font-size:.86rem}
+      .fade{opacity:0;transform:translateY(10px);transition:.5s ease}.fade.in{opacity:1;transform:none}
+      @media (max-width:860px){.hero,.cards{grid-template-columns:1fr}nav .links{display:none}}
+    </style>
+  </head>
+  <body>
+    <header><div class="wrap"><nav><strong>Yuito</strong><div class="links"><a href="#about">About</a><a href="#skills">Skills</a><a href="#projects">Projects</a><a href="#awards">Awards</a><a href="#sns">SNS</a></div></nav></div></header>
+    <main class="wrap">
+      <section class="hero fade" style="border-top:none;padding-top:4rem">
+        <article class="panel">
+          <span class="tag">Split Hero</span>
+          <h1>プロフィールと実績を、<br>最初に伝えるレイアウト。</h1>
+          <p class="muted">左で自己紹介、右で基本情報とリンクを見せる構成。採用担当者が短時間で要点を把握しやすい設計です。</p>
+        </article>
+        <aside class="panel grad">
+          <h3>Quick Info</h3>
+          <p>会津大学 学部1年</p>
+          <p>関心: Web開発 / ソフトウェア</p>
+          <p><a href="#">GitHub</a> ・ <a href="#">X</a></p>
+        </aside>
+      </section>
+
+      <section id="about" class="fade"><h2>自己紹介</h2><div class="card">名前・年齢・所属組織・興味分野を簡潔に記載。就活時に読みやすい分量でまとめる。</div></section>
+      <section id="skills" class="fade"><h2>スキル</h2><div class="chips"><span class="chip">HTML</span><span class="chip">CSS</span><span class="chip">Git/GitHub</span><span class="chip">C</span><span class="chip">Python</span></div></section>
+      <section id="projects" class="fade"><h2>プロジェクト</h2><div class="cards"><div class="card"><h3>Project A</h3><p>要件整理からUI実装まで担当。</p></div><div class="card"><h3>Project B</h3><p>授業課題でのチーム開発経験。</p></div></div></section>
+      <section id="awards" class="fade"><h2>受賞履歴</h2><div class="card">20XX: ○○受賞 / 20XX: △△入賞</div></section>
+      <section id="sns" class="fade"><h2>SNSリンク</h2><div class="card"><a href="#">GitHub</a> / <a href="#">X</a> / <a href="#">LinkedIn</a></div></section>
+    </main>
+    <script>const io=new IntersectionObserver(es=>es.forEach(e=>e.isIntersecting&&e.target.classList.add('in')),{threshold:.1});document.querySelectorAll('.fade').forEach(el=>io.observe(el));</script>
+  </body>
+</html>
